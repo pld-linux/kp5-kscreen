@@ -1,14 +1,14 @@
-%define		kdeplasmaver	5.5.4
+%define		kdeplasmaver	5.11.2
 %define		qtver		5.3.2
 %define		kpname		kscreen
 Summary:	KDE's screen management software
 Name:		kp5-%{kpname}
-Version:	5.5.4
+Version:	5.11.2
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	6a353bae593f9519773be8f9529adb1f
+# Source0-md5:	b03474f7931fcbf838dc6dee08f3966f
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	cmake >= 2.8.12
