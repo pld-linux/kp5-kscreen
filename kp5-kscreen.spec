@@ -1,14 +1,14 @@
-%define		kdeplasmaver	5.11.2
+%define		kdeplasmaver	5.14.4
 %define		qtver		5.3.2
 %define		kpname		kscreen
 Summary:	KDE's screen management software
 Name:		kp5-%{kpname}
-Version:	5.11.2
+Version:	5.14.4
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	b03474f7931fcbf838dc6dee08f3966f
+# Source0-md5:	2fd69bedd600e7bfa8e4cae6e2425fc9
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	cmake >= 2.8.12
@@ -63,4 +63,21 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/kcm_kscreen
 %{_datadir}/kservices5/kcm_kscreen.desktop
 #%%{_datadir}/kservices5/kded/kscreen.desktop
-
+/etc/xdg/kscreen.categories
+%{_libdir}/qt5/plugins/plasma/applets/plasma_applet_kscreen.so
+%dir %{_datadir}/kded_kscreen
+%dir %{_datadir}/kded_kscreen/qml
+%{_datadir}/kded_kscreen/qml/Osd.qml
+%{_datadir}/kded_kscreen/qml/OsdItem.qml
+%{_datadir}/kded_kscreen/qml/OsdSelector.qml
+%{_datadir}/kded_kscreen/qml/OutputIdentifier.qml
+%{_datadir}/kservices5/plasma-applet-org.kde.kscreen.desktop
+%{_datadir}/metainfo/org.kde.kscreen.appdata.xml
+%dir %{_datadir}/plasma/plasmoids/org.kde.kscreen
+%dir %{_datadir}/plasma/plasmoids/org.kde.kscreen/contents
+%dir %{_datadir}/plasma/plasmoids/org.kde.kscreen/contents/ui
+%{_datadir}/plasma/plasmoids/org.kde.kscreen/contents/ui/PresentationModeItem.qml
+%{_datadir}/plasma/plasmoids/org.kde.kscreen/contents/ui/ScreenLayoutSelection.qml
+%{_datadir}/plasma/plasmoids/org.kde.kscreen/contents/ui/main.qml
+%{_datadir}/plasma/plasmoids/org.kde.kscreen/metadata.desktop
+%{_datadir}/plasma/plasmoids/org.kde.kscreen/metadata.json
