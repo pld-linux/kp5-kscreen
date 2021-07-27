@@ -1,14 +1,14 @@
-%define		kdeplasmaver	5.22.3
+%define		kdeplasmaver	5.22.4
 %define		qtver		5.9.0
 %define		kpname		kscreen
 Summary:	KDE's screen management software
 Name:		kp5-%{kpname}
-Version:	5.22.3
-Release:	2
+Version:	5.22.4
+Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	fe75038f0ae525cf1d108d78224c7a18
+# Source0-md5:	6fab0d760e9e6a33255441aab3874b2f
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	cmake >= 2.8.12
@@ -66,7 +66,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/kded_kscreen/qml/OsdItem.qml
 %{_datadir}/kded_kscreen/qml/OsdSelector.qml
 %{_datadir}/kded_kscreen/qml/OutputIdentifier.qml
-%{_datadir}/kservices5/plasma-applet-org.kde.kscreen.desktop
 %{_datadir}/metainfo/org.kde.kscreen.appdata.xml
 %dir %{_datadir}/plasma/plasmoids/org.kde.kscreen
 %dir %{_datadir}/plasma/plasmoids/org.kde.kscreen/contents
