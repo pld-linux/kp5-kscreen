@@ -1,17 +1,17 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeplasmaver	5.25.5
+%define		kdeplasmaver	5.26.0
 %define		qtver		5.15.2
 %define		kpname		kscreen
 Summary:	KDE's screen management software
 Name:		kp5-%{kpname}
-Version:	5.25.5
-Release:	2
+Version:	5.26.0
+Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	a31c714da72e799b7dfd36876a78992a
+# Source0-md5:	f0960adc7c9f75391d2c84fd5b01a761
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	cmake >= 2.8.12
@@ -66,7 +66,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kscreen-console
 %attr(755,root,root) %{_libdir}/qt5/plugins/kf5/kded/kscreen.so
-%{_datadir}/kservices5/kcm_kscreen.desktop
 %{_libdir}/qt5/plugins/plasma/applets/plasma_applet_kscreen.so
 %dir %{_datadir}/kded_kscreen
 %dir %{_datadir}/kded_kscreen/qml
@@ -81,7 +80,12 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/plasma/plasmoids/org.kde.kscreen/contents/ui/main.qml
 %{_datadir}/plasma/plasmoids/org.kde.kscreen/metadata.desktop
 %{_datadir}/plasma/plasmoids/org.kde.kscreen/metadata.json
-%attr(755,root,root) %{_libdir}/qt5/plugins/kcms/kcm_kscreen.so
 %{_datadir}/kpackage/kcms/kcm_kscreen
 %{_datadir}/qlogging-categories5/kscreen.categories
 %{_datadir}/kservices5/plasma-applet-org.kde.kscreen.desktop
+
+%{systemduserunitdir}/plasma-kscreen-osd.service
+%{_libdir}/qt5/plugins/plasma/kcms/systemsettings/kcm_kscreen.so
+%attr(755,root,root) %{_prefix}/libexec/kscreen_osd_service
+%{_desktopdir}/kcm_kscreen.desktop
+%{_datadir}/dbus-1/services/org.kde.kscreen.osdService.service
