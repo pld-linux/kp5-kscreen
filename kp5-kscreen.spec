@@ -1,30 +1,30 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeplasmaver	5.27.10
+%define		kdeplasmaver	5.93.0
 %define		qtver		5.15.2
 %define		kpname		kscreen
 Summary:	KDE's screen management software
 Name:		kp5-%{kpname}
-Version:	5.27.10
-Release:	1
+Version:	5.93.0
+Release:	0.1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
-Source0:	https://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	24bc4ed3ad5587bd05591aafd758df2c
+Source0:	https://download.kde.org/unstable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
+# Source0-md5:	aa0a2e7e95c1b98146a5d2edb9e7bd87
 URL:		http://www.kde.org/
-BuildRequires:	Qt5Core-devel >= %{qtver}
+BuildRequires:	Qt6Core-devel >= %{qtver}
 BuildRequires:	cmake >= 3.16.0
-BuildRequires:	kf5-extra-cmake-modules >= 1.4.0
-BuildRequires:	kf5-kconfig-devel
-BuildRequires:	kf5-kconfigwidgets-devel
-BuildRequires:	kf5-kdbusaddons-devel
-BuildRequires:	kf5-kglobalaccel-devel
-BuildRequires:	kf5-ki18n-devel
-BuildRequires:	kf5-kwidgetsaddons-devel
-BuildRequires:	kf5-kxmlgui-devel
+BuildRequires:	kf6-extra-cmake-modules >= 1.4.0
+BuildRequires:	kf6-kconfig-devel
+BuildRequires:	kf6-kconfigwidgets-devel
+BuildRequires:	kf6-kdbusaddons-devel
+BuildRequires:	kf6-kglobalaccel-devel
+BuildRequires:	kf6-ki18n-devel
+BuildRequires:	kf6-kwidgetsaddons-devel
+BuildRequires:	kf6-kxmlgui-devel
 BuildRequires:	ninja
-BuildRequires:	qt5-build >= %{qtver}
+BuildRequires:	qt6-build >= %{qtver}
 BuildRequires:	rpmbuild(macros) >= 1.164
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
@@ -63,8 +63,7 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{kpname}.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kscreen-console
-%attr(755,root,root) %{_libdir}/qt5/plugins/kf5/kded/kscreen.so
-%{_libdir}/qt5/plugins/plasma/applets/plasma_applet_kscreen.so
+%attr(755,root,root) %{_libdir}/qt6/plugins/kf6/kded/kscreen.so
 %{_datadir}/metainfo/org.kde.kscreen.appdata.xml
 %dir %{_datadir}/plasma/plasmoids/org.kde.kscreen
 %dir %{_datadir}/plasma/plasmoids/org.kde.kscreen/contents
@@ -73,14 +72,12 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/plasma/plasmoids/org.kde.kscreen/contents/ui/PresentationModeItem.qml
 %{_datadir}/plasma/plasmoids/org.kde.kscreen/contents/ui/ScreenLayoutSelection.qml
 %{_datadir}/plasma/plasmoids/org.kde.kscreen/contents/ui/main.qml
-%{_datadir}/plasma/plasmoids/org.kde.kscreen/metadata.desktop
 %{_datadir}/plasma/plasmoids/org.kde.kscreen/metadata.json
-%{_datadir}/kpackage/kcms/kcm_kscreen
-%{_datadir}/qlogging-categories5/kscreen.categories
-%{_datadir}/kservices5/plasma-applet-org.kde.kscreen.desktop
-
+%{_datadir}/qlogging-categories6/kscreen.categories
 %{systemduserunitdir}/plasma-kscreen-osd.service
-%{_libdir}/qt5/plugins/plasma/kcms/systemsettings/kcm_kscreen.so
+%attr(755,root,root) %{_libdir}/qt6/plugins/plasma/kcms/systemsettings/kcm_kscreen.so
 %attr(755,root,root) %{_prefix}/libexec/kscreen_osd_service
 %{_desktopdir}/kcm_kscreen.desktop
 %{_datadir}/dbus-1/services/org.kde.kscreen.osdService.service
+%attr(755,root,root) %{_libdir}/qt6/plugins/plasma/applets/org.kde.kscreen.so
+%{_datadir}/kglobalaccel/org.kde.kscreen.desktop
