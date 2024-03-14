@@ -1,17 +1,17 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeplasmaver	5.27.10
+%define		kdeplasmaver	5.27.11
 %define		qtver		5.15.2
 %define		kpname		kscreen
 Summary:	KDE's screen management software
 Name:		kp5-%{kpname}
-Version:	5.27.10
+Version:	5.27.11
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	24bc4ed3ad5587bd05591aafd758df2c
+# Source0-md5:	8f39adaa89c07a6547dd62a8c27d4021
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	cmake >= 3.16.0
